@@ -5,14 +5,12 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_funcoes")
+@Table(name = "tb_roles")
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "fun_id")
     private Long id;
-    @Column(name = "fun_autoridade")
     private String authority;
 
     public Role(){}

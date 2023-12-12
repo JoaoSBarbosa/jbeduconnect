@@ -5,22 +5,19 @@ import jakarta.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "tb_usuario")
+@Table(name = "tb_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "usr_name")
     private String name;
-    @Column(name = "usr_email")
     private String email;
-    @Column(name = "usr_senha")
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_usuario_funcoes",
-    joinColumns = @JoinColumn(name = "usuario_id"),
-    inverseJoinColumns = @JoinColumn(name = "funcoes_id"))
+    @JoinTable(name = "tb_user_role",
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
     public User(){}
