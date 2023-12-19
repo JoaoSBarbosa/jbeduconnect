@@ -20,9 +20,7 @@ public class Course implements Serializable {
     @OneToMany
     private List<Offer> offers = new ArrayList<>();
 
-    private Course(){
-
-    }
+    public Course(){}
 
     public Course(Long id, String name, String imgUri, String imgGrayUri, List<Offer> offers) {
         this.id = id;

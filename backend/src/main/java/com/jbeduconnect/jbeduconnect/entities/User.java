@@ -20,6 +20,8 @@ public class User {
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+    @OneToMany
+    private List<Notification> notifications = new ArrayList<>();
     public User(){}
     public User(Long id, String name, String email, String password, Set<Role> roles) {
         this.id = id;
@@ -67,6 +69,14 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
     }
 
     @Override
